@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -55,6 +56,7 @@ export default function Home() {
               >
                 Projects
               </a>
+              <Link href="/news" className="hover:text-[#00b2a9] transition-colors">News</Link>
               <a
                 href="#contact"
                 className="hover:text-[#00b2a9] transition-colors"
@@ -90,6 +92,8 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      
 
       {/* Services Section */}
       <section id="services" className="py-20 px-6">
