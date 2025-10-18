@@ -10,10 +10,10 @@ export const metadata: Metadata = {
 // Mock data - you can later replace this with a CMS or database
 const newsArticles = [
   {
-    id: "pactus-grant-2024",
+    id: "pactus-grant-2025",
     title: "Kyvra Tech Secures Grant from Pactus Blockchain for Node Tracker Development",
     excerpt: "We're thrilled to announce that Kyvra Tech has been selected for a prestigious grant under the Pactus FUSION Program to develop the comprehensive Pactus Nodes Tracker.",
-    date: "2024-10-18",
+    date: "2025-10-18",
     category: "Partnership",
     image: "/partner/pactus_partner.png",
     featured: true,
@@ -30,10 +30,10 @@ const newsArticles = [
     tags: ["AI", "Social Media", "Product Launch"],
   },
   {
-    id: "pactus-wallet-completion-2024",
+    id: "pactus-wallet-completion-2025",
     title: "Pactus Wallet Development Completed",
     excerpt: "We've successfully delivered a secure, cross-platform wallet solution for the Pactus blockchain, providing users with seamless digital asset management.",
-    date: "2024-08-20",
+    date: "2025-08-20",
     category: "Project Completion",
     image: "/wallet.png",
     featured: false,
