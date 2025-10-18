@@ -5,9 +5,9 @@ import { notFound } from "next/navigation";
 
 // Mock data - replace with your data source
 const newsArticles = {
-  "pactus-grant-2024": {
+  "pactus-grant-2025": {
     title: "Kyvra Tech Secures Grant from Pactus Blockchain for Node Tracker Development",
-    date: "2024-10-18",
+    date: "2025-10-18",
     category: "Partnership",
     image: "/partner/pactus_partner.png",
     tags: ["Blockchain", "Partnership", "Open Source", "Grant"],
