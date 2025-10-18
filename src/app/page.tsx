@@ -98,7 +98,7 @@ export default function Home() {
             Our <span className="gradient-text">Expertise</span>
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 hover:border-[#00b2a9] transition-all hover:scale-105">
+            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700  transition-all hover:scale-105">
               <div className="w-12 h-12 bg-[#00b2a9] rounded-lg mb-6 flex items-center justify-center">
                 <svg
                   className="w-6 h-6 text-black"
@@ -115,7 +115,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 hover:border-[#00b2a9] transition-all hover:scale-105">
+            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 transition-all hover:scale-105">
               <div className="w-12 h-12 bg-[#00b2a9] rounded-lg mb-6 flex items-center justify-center">
                 <svg
                   className="w-6 h-6 text-black"
@@ -136,7 +136,7 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 hover:border-[#00b2a9] transition-all hover:scale-105">
+            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 transition-all hover:scale-105">
               <div className="w-12 h-12 bg-[#00b2a9] rounded-lg mb-6 flex items-center justify-center">
                 <svg
                   className="w-6 h-6 text-black"
@@ -168,16 +168,10 @@ export default function Home() {
           </h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Pactus Wallet */}
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 hover:border-[#00b2a9] transition-all hover:scale-105">
+            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 transition-all hover:scale-105">
               <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 bg-[#00b2a9] rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-black"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4zM18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z" />
-                  </svg>
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+                  <Image src="/wallet.png" alt="Pactus Logo" width={100} height={100} />
                 </div>
                 <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium">
                   Completed
@@ -209,7 +203,7 @@ export default function Home() {
                   href="https://wallet.pactus.org/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#00b2a9] hover:bg-[#00d4c7] px-6 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+                  className="bg-[#00b2a9] px-6 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
                 >
                   Live Demo
                 </a>
@@ -217,7 +211,7 @@ export default function Home() {
                   href="https://github.com/orgs/pactus-project/teams/wallet"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="border border-[#00b2a9] text-[#00b2a9] hover:bg-[#00b2a9] hover:text-black px-6 py-2 rounded-full text-sm font-semibold transition-all"
+                  className="border border-[#00b2a9] text-[#00b2a9] hover:text-black px-6 py-2 rounded-full text-sm font-semibold transition-all"
                 >
                   GitHub
                 </a>
@@ -225,7 +219,7 @@ export default function Home() {
             </div>
 
             {/* TrendPost */}
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 hover:border-[#00b2a9] transition-all hover:scale-105">
+            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700  transition-all hover:scale-105">
               <div className="flex items-center justify-between mb-6">
                 <div className="w-12 h-12 bg-[#00b2a9] rounded-lg flex items-center justify-center">
                   <svg
@@ -281,20 +275,10 @@ export default function Home() {
             </div>
 
             {/* Pactus Node Tracker */}
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 hover:border-[#00b2a9] transition-all hover:scale-105">
+            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700  transition-all hover:scale-105">
               <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 bg-[#00b2a9] rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-black"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                <div className="w-12 h-12 rounded-lg flex items-center justify-center">
+                 <Image src="/pactus.png" alt="Pactus Node Tracker" width={100} height={100} />
                 </div>
                 <span className="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium">
                   In Progress
@@ -307,6 +291,9 @@ export default function Home() {
                 bootstrap node health status.
               </p>
               <div className="flex flex-wrap gap-2 mb-6">
+              <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
+                  Golang
+                </span>
                 <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
                   Next.js
                 </span>
@@ -321,9 +308,14 @@ export default function Home() {
                 </span>
               </div>
               <div className="flex gap-4">
-                <button className="bg-gray-600 text-gray-400 px-6 py-2 rounded-full text-sm font-semibold cursor-not-allowed">
-                  Coming Soon
-                </button>
+                <a
+                  href="https://tracker.kyvra.xyz/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#00b2a9] px-6 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
+                >
+                  Live Demo
+                </a>
                 <button className="border border-gray-600 text-gray-400 px-6 py-2 rounded-full text-sm font-semibold cursor-not-allowed">
                   GitHub
                 </button>
@@ -406,7 +398,7 @@ export default function Home() {
             Let's discuss how we can help bring your vision to life with
             cutting-edge technology.
           </p>
-          <button className="bg-[#00b2a9] hover:bg-[#00d4c7] px-12 py-4 rounded-full text-xl font-semibold transition-all glow-effect hover:scale-105">
+          <button className="bg-[#00b2a9] px-12 py-4 rounded-full text-xl font-semibold transition-all glow-effect hover:scale-105">
             Start Your Project
           </button>
         </div>
@@ -523,9 +515,8 @@ export default function Home() {
             <div>
               <h3 className="text-lg font-semibold mb-4">Contact</h3>
               <ul className="space-y-2 text-gray-400">
-                <li>hoanguit@gmail.com</li>
-                <li>telegram: henry99b87</li>
-                <li>Ho Chi Minh City, Vietnam</li>
+                <li>Send us an email: support@kyvra.xyz</li>
+                <li>Follow us on GitHub: https://github.com/kyvra-tech</li>
               </ul>
             </div>
           </div>
