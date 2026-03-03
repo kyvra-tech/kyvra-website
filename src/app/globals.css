@@ -1,12 +1,10 @@
 @import "tailwindcss";
+
 :root {
   --background: #0a0a0a;
   --foreground: #ffffff;
   --primary-teal: #00b2a9;
-  --secondary-black: #0a0a0a;
   --accent-teal: #00d4c7;
-  --gray-800: #1f2937;
-  --gray-700: #374151;
 }
 
 @theme inline {
@@ -18,26 +16,43 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
 }
 
+/* Gradient text */
 .gradient-text {
-  background: linear-gradient(135deg, #00b2a9 0%, #00d4c7 100%);
+  background: linear-gradient(135deg, #00b2a9 0%, #00d4c7 60%, #00e5d4 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
+/* Subtle teal glow */
 .glow-effect {
-  box-shadow: 0 0 20px rgba(0, 178, 169, 0.3);
+  box-shadow: 0 0 30px rgba(0, 178, 169, 0.25);
 }
 
+/* Hero radial glow */
 .hero-gradient {
-  background: radial-gradient(ellipse at center, rgba(0, 178, 169, 0.1) 0%, transparent 70%);
+  background: radial-gradient(ellipse 80% 50% at 50% -10%, rgba(0, 178, 169, 0.12) 0%, transparent 60%);
 }
+
+/* Subtle dot grid background */
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 64px 64px;
+}
+
+/* Text truncation utilities */
 .line-clamp-2 {
   display: -webkit-box;
   -webkit-line-clamp: 2;

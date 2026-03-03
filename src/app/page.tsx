@@ -1,18 +1,7 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import Image from "next/image";
-import "./globals.css";
-import Link from "next/link";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import Navbar from "@/components/Navbar";
+import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
   title: "Kyvra Tech - Software & Crypto Technology Solutions",
@@ -20,515 +9,360 @@ export const metadata: Metadata = {
     "Leading innovation in software development and cryptocurrency technology. Building the future of digital solutions.",
 };
 
+const services = [
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
+      </svg>
+    ),
+    title: "Software Development",
+    description:
+      "Custom software solutions built with cutting-edge technologies and modern development practices.",
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          fillRule="evenodd"
+          d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zM3 15a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1zm7-13a1 1 0 011-1h3a2 2 0 012 2v11a3 3 0 11-6 0V4a1 1 0 011-1zm6 2a1 1 0 00-1 1v8a1 1 0 102 0V5a1 1 0 00-1-1z"
+          clipRule="evenodd"
+        />
+      </svg>
+    ),
+    title: "Blockchain Technology",
+    description:
+      "Advanced cryptocurrency and blockchain solutions for the decentralized future.",
+  },
+  {
+    icon: (
+      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          fillRule="evenodd"
+          d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
+          clipRule="evenodd"
+        />
+      </svg>
+    ),
+    title: "Web3 Development",
+    description:
+      "Next-generation web applications leveraging decentralized technologies and smart contracts.",
+  },
+];
+
+const stats = [
+  { value: "10+", label: "Years Experience" },
+  { value: "50+", label: "Projects Delivered" },
+  { value: "3", label: "Open Source Tools" },
+  { value: "24/7", label: "Support" },
+];
+
+const techStack = [
+  "React & Next.js",
+  "TypeScript",
+  "Golang",
+  "Solidity",
+  "Node.js",
+  "Web3",
+  "Mobile Dev",
+];
+
+const projects = [
+  {
+    logo: <Image src="/wallet.png" alt="Pactus Wallet" width={56} height={56} className="object-contain" />,
+    title: "Pactus Wallet",
+    status: "completed" as const,
+    description:
+      "Cross-platform wallet solution for managing digital assets on the Pactus blockchain with security and seamless UX.",
+    tags: ["React", "TypeScript", "Web3", "Blockchain"],
+    demoUrl: "https://wallet.pactus.org/",
+    githubUrl: "https://github.com/orgs/pactus-project/teams/wallet",
+  },
+  {
+    logo: (
+      <svg className="w-7 h-7 text-[#00b2a9]" fill="currentColor" viewBox="0 0 20 20">
+        <path
+          fillRule="evenodd"
+          d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
+          clipRule="evenodd"
+        />
+      </svg>
+    ),
+    title: "TrendPost",
+    status: "completed" as const,
+    description:
+      "AI-powered social media management platform to create, schedule, and analyze content with a consistent brand presence.",
+    tags: ["AI-Powered", "Social Media", "Analytics"],
+    demoUrl: "https://trendpost.co/",
+    githubUrl: null,
+  },
+  {
+    logo: <Image src="/pactus.png" alt="Pactus Node Tracker" width={56} height={56} className="object-contain" />,
+    title: "Pactus Node Tracker",
+    status: "in-progress" as const,
+    description:
+      "Comprehensive monitoring system for Pactus blockchain nodes worldwide with geographic distribution and health analytics.",
+    tags: ["Golang", "Next.js", "Monitoring", "Analytics"],
+    demoUrl: "https://tracker.kyvra.xyz/",
+    githubUrl: null,
+  },
+];
+
+function StatusBadge({ status }: { status: "completed" | "in-progress" }) {
+  if (status === "completed") {
+    return (
+      <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+        <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full" />
+        Completed
+      </span>
+    );
+  }
+  return (
+    <span className="inline-flex items-center gap-1.5 text-xs font-medium px-3 py-1 rounded-full bg-amber-500/10 text-amber-400 border border-amber-500/20">
+      <span className="w-1.5 h-1.5 bg-amber-400 rounded-full animate-pulse" />
+      In Progress
+    </span>
+  );
+}
+
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
-      {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 bg-[#0a0a0a]/80 backdrop-blur-md border-b border-gray-800">
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center space-x-3">
-              <Image
-                src="/kyvra_logo.png"
-                alt="Kyvra Tech Logo"
-                width={30}
-                height={47}
-                className="w-10 h-10"
-              />
-              <div className="text-2xl font-bold color-white">Kyvra Tech</div>
-            </div>
-            <div className="hidden md:flex space-x-8">
-              <a
-                href="#about"
-                className="hover:text-[#00b2a9] transition-colors"
-              >
-                About
-              </a>
-              <a
-                href="#services"
-                className="hover:text-[#00b2a9] transition-colors"
-              >
-                Services
-              </a>
-              <a
-                href="#projects"
-                className="hover:text-[#00b2a9] transition-colors"
-              >
-                Projects
-              </a>
-              <Link href="/news" className="hover:text-[#00b2a9] transition-colors">News</Link>
-              <a
-                href="#contact"
-                className="hover:text-[#00b2a9] transition-colors"
-              >
-                Contact
-              </a>
-            </div>
-            <button className="bg-[#00b2a9] hover:bg-[#00d4c7] px-6 py-2 rounded-full transition-colors">
-              Get Started
-            </button>
-          </div>
-        </div>
-      </nav>
+      <Navbar />
 
-      {/* Hero Section */}
-      <section className="pt-32 pb-20 px-6 hero-gradient">
-        <div className="max-w-7xl mx-auto text-center">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+      {/* Hero */}
+      <section className="relative pt-32 pb-24 px-6 overflow-hidden hero-gradient">
+        <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
+        <div className="relative max-w-7xl mx-auto text-center">
+          {/* Live badge */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00b2a9]/10 border border-[#00b2a9]/30 text-[#00b2a9] text-sm font-medium mb-8">
+            <span className="w-2 h-2 bg-[#00b2a9] rounded-full animate-pulse" />
+            Now building Pactus Node Tracker
+          </div>
+
+          <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-[1.1] tracking-tight">
             Building the Future of{" "}
             <span className="gradient-text">Digital Innovation</span>
           </h1>
-          <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl mx-auto leading-relaxed">
             Leading-edge software development and cryptocurrency technology
             solutions that transform ideas into reality.
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="bg-[#00b2a9] hover:bg-[#00d4c7] px-8 py-4 rounded-full text-lg font-semibold transition-all glow-effect hover:scale-105">
-              Explore Our Solutions
-            </button>
-            <button className="border border-[#00b2a9] text-[#00b2a9] hover:bg-[#00b2a9] hover:text-black px-8 py-4 rounded-full text-lg font-semibold transition-all">
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center mb-20">
+            <a
+              href="#projects"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full bg-[#00b2a9] hover:bg-[#00d4c7] text-black font-semibold transition-all hover:scale-105 shadow-lg shadow-[#00b2a9]/25"
+            >
+              View Our Work
+            </a>
+            <a
+              href="#about"
+              className="inline-flex items-center justify-center px-8 py-3.5 rounded-full border border-gray-700 text-gray-300 hover:border-[#00b2a9] hover:text-[#00b2a9] font-semibold transition-all"
+            >
               Learn More
-            </button>
+            </a>
+          </div>
+
+          {/* Stats bar */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-gray-800/50 rounded-2xl overflow-hidden border border-gray-800/50 max-w-3xl mx-auto">
+            {stats.map((stat) => (
+              <div key={stat.label} className="bg-[#0a0a0a] px-6 py-6 text-center">
+                <div className="text-3xl font-bold text-white mb-1">{stat.value}</div>
+                <div className="text-sm text-gray-500">{stat.label}</div>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      
-
-      {/* Services Section */}
-      <section id="services" className="py-20 px-6">
+      {/* Services */}
+      <section id="services" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Our <span className="gradient-text">Expertise</span>
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700  transition-all hover:scale-105">
-              <div className="w-12 h-12 bg-[#00b2a9] rounded-lg mb-6 flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-black"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z" />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Software Development</h3>
-              <p className="text-gray-300">
-                Custom software solutions built with cutting-edge technologies
-                and modern development practices.
-              </p>
-            </div>
-
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 transition-all hover:scale-105">
-              <div className="w-12 h-12 bg-[#00b2a9] rounded-lg mb-6 flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-black"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M4 2a2 2 0 00-2 2v11a3 3 0 106 0V4a2 2 0 00-2-2H4zM3 15a1 1 0 011-1h1a1 1 0 011 1v1a1 1 0 01-1 1H4a1 1 0 01-1-1v-1zm7-13a1 1 0 011-1h3a2 2 0 012 2v11a3 3 0 11-6 0V4a1 1 0 011-1zm6 2a1 1 0 00-1 1v8a1 1 0 102 0V5a1 1 0 00-1-1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Blockchain Technology</h3>
-              <p className="text-gray-300">
-                Advanced cryptocurrency and blockchain solutions for the
-                decentralized future.
-              </p>
-            </div>
-
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 transition-all hover:scale-105">
-              <div className="w-12 h-12 bg-[#00b2a9] rounded-lg mb-6 flex items-center justify-center">
-                <svg
-                  className="w-6 h-6 text-black"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M12.316 3.051a1 1 0 01.633 1.265l-4 12a1 1 0 11-1.898-.632l4-12a1 1 0 011.265-.633zM5.707 6.293a1 1 0 010 1.414L3.414 10l2.293 2.293a1 1 0 11-1.414 1.414l-3-3a1 1 0 010-1.414l3-3a1 1 0 011.414 0zm8.586 0a1 1 0 011.414 0l3 3a1 1 0 010 1.414l-3 3a1 1 0 11-1.414-1.414L16.586 10l-2.293-2.293a1 1 0 010-1.414z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Web3 Development</h3>
-              <p className="text-gray-300">
-                Next-generation web applications leveraging decentralized
-                technologies and smart contracts.
-              </p>
-            </div>
+          <div className="text-center mb-16">
+            <p className="text-[#00b2a9] text-sm font-semibold uppercase tracking-widest mb-3">
+              What We Do
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Our <span className="gradient-text">Expertise</span>
+            </h2>
           </div>
-        </div>
-      </section>
-
-      {/* Projects Section */}
-      <section id="projects" className="py-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <h2 className="text-4xl md:text-5xl font-bold text-center mb-16">
-            Our <span className="gradient-text">Projects</span>
-          </h2>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {/* Pactus Wallet */}
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700 transition-all hover:scale-105">
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center">
-                  <Image src="/wallet.png" alt="Pactus Logo" width={100} height={100} />
+          <div className="grid md:grid-cols-3 gap-6">
+            {services.map((service) => (
+              <div
+                key={service.title}
+                className="group p-8 rounded-2xl bg-gray-900/50 border border-gray-800 hover:border-[#00b2a9]/40 transition-all duration-300 hover:-translate-y-1"
+              >
+                <div className="w-12 h-12 bg-[#00b2a9]/10 rounded-xl mb-6 flex items-center justify-center text-[#00b2a9] group-hover:bg-[#00b2a9] group-hover:text-black transition-all duration-300">
+                  {service.icon}
                 </div>
-                <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium">
-                  Completed
-                </span>
+                <h3 className="text-xl font-bold mb-3 text-white">{service.title}</h3>
+                <p className="text-gray-500 text-sm leading-relaxed">{service.description}</p>
               </div>
-              <h3 className="text-2xl font-bold mb-4">Pactus Wallet</h3>
-              <p className="text-gray-300 mb-6">
-                Pactus Wallet is a cross-platform wallet solution for managing
-                digital assets on the Pactus blockchain. Built with security and
-                usability in mind, it provides a seamless experience for users
-                to create wallets, manage accounts, and perform transactions.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  React
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  TypeScript
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  Web3
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  Blockchain
-                </span>
-              </div>
-              <div className="flex gap-4">
-                <a
-                  href="https://wallet.pactus.org/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#00b2a9] px-6 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
-                >
-                  Live Demo
-                </a>
-                <a
-                  href="https://github.com/orgs/pactus-project/teams/wallet"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="border border-[#00b2a9] text-[#00b2a9] hover:text-black px-6 py-2 rounded-full text-sm font-semibold transition-all"
-                >
-                  GitHub
-                </a>
-              </div>
-            </div>
+            ))}
+          </div>
+        </div>
+      </section>
 
-            {/* TrendPost */}
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700  transition-all hover:scale-105">
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 bg-[#00b2a9] rounded-lg flex items-center justify-center">
-                  <svg
-                    className="w-6 h-6 text-black"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
+      {/* Projects */}
+      <section id="projects" className="py-24 px-6 bg-gray-900/20">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-[#00b2a9] text-sm font-semibold uppercase tracking-widest mb-3">
+              Our Work
+            </p>
+            <h2 className="text-4xl md:text-5xl font-bold">
+              Featured <span className="gradient-text">Projects</span>
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {projects.map((project) => (
+              <div
+                key={project.title}
+                className="flex flex-col bg-gray-900/50 rounded-2xl border border-gray-800 hover:border-[#00b2a9]/40 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+              >
+                <div className="p-6 flex-1">
+                  <div className="flex items-center justify-between mb-5">
+                    <div className="w-14 h-14 rounded-xl overflow-hidden bg-gray-800/60 flex items-center justify-center">
+                      {project.logo}
+                    </div>
+                    <StatusBadge status={project.status} />
+                  </div>
+                  <h3 className="text-lg font-bold mb-2 text-white">{project.title}</h3>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {project.tags.map((tag) => (
+                      <span
+                        key={tag}
+                        className="text-xs px-2.5 py-1 rounded-full bg-[#00b2a9]/10 text-[#00b2a9]"
+                      >
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="px-6 pb-6 flex gap-3">
+                  <a
+                    href={project.demoUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 text-center px-4 py-2 rounded-full bg-[#00b2a9] hover:bg-[#00d4c7] text-black text-sm font-semibold transition-all"
                   >
-                    <path
-                      fillRule="evenodd"
-                      d="M3 3a1 1 0 000 2v8a2 2 0 002 2h2.586l-1.293 1.293a1 1 0 101.414 1.414L10 15.414l2.293 2.293a1 1 0 001.414-1.414L12.414 15H15a2 2 0 002-2V5a1 1 0 100-2H3zm11.707 4.707a1 1 0 00-1.414-1.414L10 9.586 8.707 8.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
+                    Live Demo
+                  </a>
+                  {project.githubUrl ? (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex-1 text-center px-4 py-2 rounded-full border border-gray-700 text-gray-300 hover:border-[#00b2a9] hover:text-[#00b2a9] text-sm font-semibold transition-all"
+                    >
+                      GitHub
+                    </a>
+                  ) : (
+                    <span className="flex-1 text-center px-4 py-2 rounded-full border border-gray-800 text-gray-600 text-sm font-semibold cursor-not-allowed">
+                      Private
+                    </span>
+                  )}
                 </div>
-                <span className="bg-green-500/20 text-green-400 px-3 py-1 rounded-full text-sm font-medium">
-                  Completed
-                </span>
               </div>
-              <h3 className="text-2xl font-bold mb-4">TrendPost</h3>
-              <p className="text-gray-300 mb-6">
-                Features that turn ideas into Social Media Success. Create,
-                schedule, and analyze your content with our comprehensive suite
-                of AI-powered tools. Save hours of work while maintaining a
-                consistent brand presence across all platforms.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  AI-Powered
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  Social Media
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  Content Creation
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  Analytics
-                </span>
-              </div>
-              <div className="flex gap-4">
-                <a
-                  href="https://trendpost.co/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#00b2a9] hover:bg-[#00d4c7] px-6 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
-                >
-                  Live Demo
-                </a>
-                <button className="border border-gray-600 text-gray-400 px-6 py-2 rounded-full text-sm font-semibold cursor-not-allowed">
-                  GitHub
-                </button>
-              </div>
-            </div>
-
-            {/* Pactus Node Tracker */}
-            <div className="bg-gray-800/50 p-8 rounded-2xl border border-gray-700  transition-all hover:scale-105">
-              <div className="flex items-center justify-between mb-6">
-                <div className="w-12 h-12 rounded-lg flex items-center justify-center">
-                 <Image src="/pactus.png" alt="Pactus Node Tracker" width={100} height={100} />
-                </div>
-                <span className="bg-yellow-500/20 text-yellow-400 px-3 py-1 rounded-full text-sm font-medium">
-                  In Progress
-                </span>
-              </div>
-              <h3 className="text-2xl font-bold mb-4">Pactus Node Tracker</h3>
-              <p className="text-gray-300 mb-6">
-                A comprehensive monitoring system for Pactus blockchain nodes
-                worldwide. Displays active nodes, geographical distribution, and
-                bootstrap node health status.
-              </p>
-              <div className="flex flex-wrap gap-2 mb-6">
-              <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  Golang
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  Next.js
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  React
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  Monitoring
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-3 py-1 rounded-full text-sm">
-                  Analytics
-                </span>
-              </div>
-              <div className="flex gap-4">
-                <a
-                  href="https://tracker.kyvra.xyz/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#00b2a9] px-6 py-2 rounded-full text-sm font-semibold transition-all hover:scale-105"
-                >
-                  Live Demo
-                </a>
-                <button className="border border-gray-600 text-gray-400 px-6 py-2 rounded-full text-sm font-semibold cursor-not-allowed">
-                  GitHub
-                </button>
-              </div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* About Section */}
-      <section id="about" className="py-20 px-6 bg-gray-800/20">
+      {/* About */}
+      <section id="about" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold mb-8">
+              <p className="text-[#00b2a9] text-sm font-semibold uppercase tracking-widest mb-3">
+                About Us
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
                 Innovation at the <span className="gradient-text">Core</span>
               </h2>
-              <p className="text-xl text-gray-300 mb-6">
-                At Kyvra Tech, we're passionate about pushing the boundaries of
-                what's possible in software development and cryptocurrency
-                technology.
+              <p className="text-gray-400 text-lg leading-relaxed mb-4">
+                At Kyvra Tech, we push the boundaries of what&apos;s possible in
+                software development and cryptocurrency technology.
               </p>
-              <p className="text-lg text-gray-400 mb-8">
-                Our team of expert developers and blockchain specialists work
-                tirelessly to deliver solutions that not only meet today's needs
-                but anticipate tomorrow's challenges.
+              <p className="text-gray-500 leading-relaxed mb-8">
+                Our team of expert developers and blockchain specialists deliver
+                solutions that not only meet today&apos;s needs but anticipate
+                tomorrow&apos;s challenges.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-4 py-2 rounded-full">
-                  React & Next.js
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-4 py-2 rounded-full">
-                  Mobile Development
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-4 py-2 rounded-full">
-                  Solidity
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-4 py-2 rounded-full">
-                  Node.js
-                </span>
-                <span className="bg-[#00b2a9]/20 text-[#00b2a9] px-4 py-2 rounded-full">
-                  Web3
-                </span>
+              <div className="flex flex-wrap gap-2">
+                {techStack.map((tech) => (
+                  <span
+                    key={tech}
+                    className="px-3 py-1.5 rounded-full bg-gray-800 border border-gray-700 text-gray-300 text-sm hover:border-[#00b2a9]/50 hover:text-[#00b2a9] transition-all cursor-default"
+                  >
+                    {tech}
+                  </span>
+                ))}
               </div>
             </div>
-            <div className="relative">
-              <div className="bg-gradient-to-br from-[#00b2a9]/20 to-transparent p-8 rounded-2xl border border-[#00b2a9]/30">
-                <div className="space-y-6">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-3 h-3 bg-[#00b2a9] rounded-full"></div>
-                    <span className="text-lg">10+ Years of Experience</span>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-3 h-3 bg-[#00b2a9] rounded-full"></div>
-                    <span className="text-lg">50+ Successful Projects</span>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-3 h-3 bg-[#00b2a9] rounded-full"></div>
-                    <span className="text-lg">24/7 Support</span>
-                  </div>
-                  <div className="flex items-center space-x-4">
-                    <div className="w-3 h-3 bg-[#00b2a9] rounded-full"></div>
-                    <span className="text-lg">Global Client Base</span>
-                  </div>
+            <div className="grid grid-cols-2 gap-4">
+              {stats.map((stat) => (
+                <div
+                  key={stat.label}
+                  className="p-8 rounded-2xl bg-gray-900/50 border border-gray-800 text-center hover:border-[#00b2a9]/30 transition-all"
+                >
+                  <div className="text-4xl font-bold gradient-text mb-2">{stat.value}</div>
+                  <div className="text-sm text-gray-500">{stat.label}</div>
                 </div>
-              </div>
+              ))}
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="py-20 px-6">
-        <div className="max-w-4xl mx-auto text-center">
-          <h2 className="text-4xl md:text-5xl font-bold mb-8">
+      {/* Partners */}
+      <section className="py-16 px-6 border-y border-gray-800/50">
+        <div className="max-w-7xl mx-auto text-center">
+          <p className="text-gray-600 text-xs uppercase tracking-widest mb-8">
+            Trusted Partners
+          </p>
+          <div className="flex justify-center items-center">
+            <div className="opacity-60 hover:opacity-100 transition-opacity duration-300">
+              <Image
+                src="/partner/pactus_partner.png"
+                alt="Pactus"
+                width={640}
+                height={548}
+                className="h-120 w-auto object-contain"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section id="contact" className="py-28 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
             Ready to <span className="gradient-text">Transform</span> Your
             Ideas?
           </h2>
-          <p className="text-xl text-gray-300 mb-12">
-            Let's discuss how we can help bring your vision to life with
-            cutting-edge technology.
+          <p className="text-gray-400 text-lg mb-10">
+            Let&apos;s build something extraordinary together. Reach out and
+            let&apos;s discuss your vision.
           </p>
-          <button className="bg-[#00b2a9] px-12 py-4 rounded-full text-xl font-semibold transition-all glow-effect hover:scale-105">
+          <a
+            href="mailto:support@kyvra.xyz"
+            className="inline-flex items-center gap-2 px-10 py-4 rounded-full bg-[#00b2a9] hover:bg-[#00d4c7] text-black text-lg font-semibold transition-all hover:scale-105 shadow-xl shadow-[#00b2a9]/20"
+          >
             Start Your Project
-          </button>
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </a>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-gray-800 py-12 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid md:grid-cols-4 gap-8">
-            <div className="md:col-span-2">
-              <div className="flex items-center space-x-3 mb-4">
-                <Image
-                  src="/kyvra_logo.png"
-                  alt="Kyvra Tech Logo"
-                  width={30}
-                  height={57}
-                  className="w-8 h-8 color-white"
-                />
-                <div className="text-2xl font-bold color-white">
-                  Kyvra Tech
-                </div>
-              </div>
-              <p className="text-gray-400 mb-6">
-                Leading innovation in software development and cryptocurrency
-                technology.
-              </p>
-              <div className="flex space-x-4">
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#00b2a9] transition-colors"
-                >
-                  <span className="sr-only">Twitter</span>
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84" />
-                  </svg>
-                </a>
-                <a
-                  href="#"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#00b2a9] transition-colors"
-                >
-                  <span className="sr-only">LinkedIn</span>
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.207v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.005 6.575a1.548 1.548 0 11-.003-3.096 1.548 1.548 0 01.003 3.096zm-1.337 9.763H6.34v-8.59H3.667v8.59zM17.668 1H2.328C1.595 1 1 1.581 1 2.298v15.403C1 18.418 1.595 19 2.328 19h15.34c.734 0 1.332-.582 1.332-1.299V2.298C19 1.581 18.402 1 17.668 1z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </a>
-                <a
-                  href="https://github.com/kyvra-tech"
-                  className="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-[#00b2a9] transition-colors"
-                >
-                  <span className="sr-only">GitHub</span>
-                  <svg
-                    className="w-5 h-5"
-                    fill="currentColor"
-                    viewBox="0 0 20 20"
-                  >
-                    <path
-                      fillRule="evenodd"
-                      d="M10 0C4.477 0 0 4.484 0 10.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0110 4.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.203 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.942.359.31.678.921.678 1.856 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0020 10.017C20 4.484 15.522 0 10 0z"
-                      clipRule="evenodd"
-                    />
-                  </svg>
-                </a>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Services</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-[#00b2a9] transition-colors"
-                  >
-                    Software Development
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-[#00b2a9] transition-colors"
-                  >
-                    Blockchain Solutions
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-[#00b2a9] transition-colors"
-                  >
-                    Web3 Development
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="#services"
-                    className="hover:text-[#00b2a9] transition-colors"
-                  >
-                    Consulting
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-lg font-semibold mb-4">Contact</h3>
-              <ul className="space-y-2 text-gray-400">
-                <li>Send us an email: support@kyvra.xyz</li>
-                <li>Follow us on GitHub: https://github.com/kyvra-tech</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 Kyvra Tech. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 }
