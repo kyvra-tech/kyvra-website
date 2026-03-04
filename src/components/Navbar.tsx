@@ -21,6 +21,7 @@ export default function Navbar() {
   const navLinks = [
     { label: "About", href: isNews ? "/#about" : "#about" },
     { label: "Services", href: isNews ? "/#services" : "#services" },
+    { label: "Ecosystem", href: isNews ? "/#ecosystem" : "#ecosystem" },
     { label: "Projects", href: isNews ? "/#projects" : "#projects" },
     { label: "News", href: "/news" },
     { label: "Contact", href: isNews ? "/#contact" : "#contact" },

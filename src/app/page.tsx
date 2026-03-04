@@ -50,6 +50,65 @@ const services = [
   },
 ];
 
+const agents = [
+  {
+    step: "01",
+    name: "Research Agent",
+    role: "Intelligence Gathering",
+    description:
+      "Continuously monitors thousands of sources — news feeds, APIs, social signals — extracting high-signal information in real time.",
+    features: ["Multi-source crawling", "Signal extraction", "Real-time monitoring"],
+    accentHex: "#3B82F6",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z" clipRule="evenodd" />
+      </svg>
+    ),
+  },
+  {
+    step: "02",
+    name: "Analytics Agent",
+    role: "Deep Analysis",
+    description:
+      "Transforms raw data into structured insights through pattern recognition, trend detection, and multi-dimensional confidence scoring.",
+    features: ["Trend detection", "Confidence scoring", "Pattern recognition"],
+    accentHex: "#00b2a9",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M2 11a1 1 0 011-1h2a1 1 0 011 1v5a1 1 0 01-1 1H3a1 1 0 01-1-1v-5zM8 7a1 1 0 011-1h2a1 1 0 011 1v9a1 1 0 01-1 1H9a1 1 0 01-1-1V7zM14 4a1 1 0 011-1h2a1 1 0 011 1v12a1 1 0 01-1 1h-2a1 1 0 01-1-1V4z" />
+      </svg>
+    ),
+  },
+  {
+    step: "03",
+    name: "Report Agent",
+    role: "Narrative Synthesis",
+    description:
+      "Distills complex analysis into clear, compelling narratives — structured reports and summaries tailored to your audience.",
+    features: ["Automated summarization", "Multi-format output", "Localized content"],
+    accentHex: "#8B5CF6",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path fillRule="evenodd" d="M4 4a2 2 0 012-2h4.586A2 2 0 0112 2.586L15.414 6A2 2 0 0116 7.414V16a2 2 0 01-2 2H6a2 2 0 01-2-2V4zm2 6a1 1 0 011-1h6a1 1 0 110 2H7a1 1 0 01-1-1zm1 3a1 1 0 100 2h6a1 1 0 100-2H7z" clipRule="evenodd" />
+      </svg>
+    ),
+  },
+  {
+    step: "04",
+    name: "Marketing Agent",
+    role: "Content Distribution",
+    description:
+      "Crafts and distributes targeted content across channels automatically — optimizing reach, engagement, and conversion at scale.",
+    features: ["Multi-channel publishing", "Audience targeting", "Performance analytics"],
+    accentHex: "#F97316",
+    icon: (
+      <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M15 8a3 3 0 10-2.977-2.63l-4.94 2.47a3 3 0 100 4.319l4.94 2.47a3 3 0 10.895-1.789l-4.94-2.47a3.027 3.027 0 000-.74l4.94-2.47C13.456 7.68 14.19 8 15 8z" />
+      </svg>
+    ),
+  },
+];
+
 const stats = [
   { value: "10+", label: "Years Experience" },
   { value: "50+", label: "Projects Delivered" },
@@ -172,6 +231,89 @@ export default function Home() {
                 <div className="text-sm text-gray-500">{stat.label}</div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Ecosystem Vision */}
+      <section id="ecosystem" className="py-24 px-6 bg-gray-900/30">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-violet-500/10 border border-violet-500/20 text-violet-400 text-xs font-semibold uppercase tracking-widest mb-6">
+              <span className="w-1.5 h-1.5 bg-violet-400 rounded-full animate-pulse" />
+              The Vision
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-5">
+              Kyvra <span className="gradient-text">AI Ecosystem</span>
+            </h2>
+            <p className="text-gray-400 text-lg max-w-2xl mx-auto leading-relaxed">
+              A unified network of specialized AI agents — each mastering its domain,
+              working in concert to automate intelligence from raw data to published insights.
+            </p>
+          </div>
+
+          {/* Agent Pipeline */}
+          <div className="relative">
+            {/* Horizontal connector line (desktop only) */}
+            <div
+              className="hidden lg:block absolute top-[3.25rem] left-[calc(12.5%+1rem)] right-[calc(12.5%+1rem)] h-px z-0 opacity-40"
+              style={{ background: "linear-gradient(90deg, #3B82F6, #00b2a9, #8B5CF6, #F97316)" }}
+            />
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 relative z-10">
+              {agents.map((agent) => (
+                <div
+                  key={agent.name}
+                  className="group relative p-6 rounded-2xl bg-[#0a0a0a] border border-gray-800 hover:border-gray-700 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
+                >
+                  {/* Top accent bar */}
+                  <div
+                    className="absolute top-0 left-0 right-0 h-0.5 rounded-t-2xl"
+                    style={{ background: `linear-gradient(90deg, ${agent.accentHex}, transparent)` }}
+                  />
+                  <div
+                    className="text-4xl font-bold mb-4"
+                    style={{ color: `${agent.accentHex}33` }}
+                  >
+                    {agent.step}
+                  </div>
+                  <div
+                    className="w-10 h-10 rounded-xl mb-4 flex items-center justify-center transition-all duration-300 group-hover:scale-110"
+                    style={{ backgroundColor: `${agent.accentHex}1A`, color: agent.accentHex }}
+                  >
+                    {agent.icon}
+                  </div>
+                  <h3 className="text-base font-bold text-white mb-1">{agent.name}</h3>
+                  <p className="text-xs font-semibold mb-3" style={{ color: agent.accentHex }}>{agent.role}</p>
+                  <p className="text-gray-500 text-sm leading-relaxed mb-4">{agent.description}</p>
+                  <ul className="space-y-2">
+                    {agent.features.map((f) => (
+                      <li key={f} className="flex items-center gap-2 text-xs text-gray-500">
+                        <span className="w-1 h-1 rounded-full flex-shrink-0" style={{ backgroundColor: agent.accentHex }} />
+                        {f}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* Supervisor note */}
+          <div className="mt-12 text-center">
+            <div className="inline-flex items-center gap-3 px-6 py-3.5 rounded-2xl max-w-xl text-left" style={{ background: "linear-gradient(#0a0a0a, #0a0a0a) padding-box, linear-gradient(90deg, #3B82F6, #00b2a9, #8B5CF6, #F97316) border-box", border: "1px solid transparent" }}>
+              <div className="w-9 h-9 bg-[#00b2a9]/10 rounded-lg flex items-center justify-center text-[#00b2a9] flex-shrink-0">
+                <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M11.3 1.046A1 1 0 0112 2v5h4a1 1 0 01.82 1.573l-7 10A1 1 0 018 18v-5H4a1 1 0 01-.82-1.573l7-10a1 1 0 011.12-.38z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <p className="text-sm text-gray-400 leading-relaxed">
+                Coordinated by a{" "}
+                <span className="text-[#00b2a9] font-semibold">Supervisor Agent</span>
+                {" "}— an AI orchestrator that routes tasks, resolves conflicts, and ensures
+                coherent output across the entire pipeline.
+              </p>
+            </div>
           </div>
         </div>
       </section>
