@@ -16,15 +16,15 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const isNews = pathname?.startsWith("/news");
+  const isSubpage = pathname?.startsWith("/news") || pathname?.startsWith("/projects");
 
   const navLinks = [
-    { label: "About", href: isNews ? "/#about" : "#about" },
-    { label: "Services", href: isNews ? "/#services" : "#services" },
-    { label: "Ecosystem", href: isNews ? "/#ecosystem" : "#ecosystem" },
-    { label: "Projects", href: isNews ? "/#projects" : "#projects" },
+    { label: "About", href: isSubpage ? "/#about" : "#about" },
+    { label: "Services", href: isSubpage ? "/#services" : "#services" },
+    { label: "Ecosystem", href: isSubpage ? "/#ecosystem" : "#ecosystem" },
+    { label: "Projects", href: isSubpage ? "/#projects" : "#projects" },
     { label: "News", href: "/news" },
-    { label: "Contact", href: isNews ? "/#contact" : "#contact" },
+    { label: "Contact", href: isSubpage ? "/#contact" : "#contact" },
   ];
 
   return (
@@ -57,7 +57,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={`text-sm font-medium transition-colors duration-200 ${
-                  link.label === "News" && isNews
+                  link.label === "News" && isSubpage
                     ? "text-[#00b2a9]"
                     : "text-gray-400 hover:text-white"
                 }`}
@@ -69,7 +69,7 @@ export default function Navbar() {
 
           <div className="flex items-center gap-4">
             <Link
-              href={isNews ? "/#contact" : "#contact"}
+              href={isSubpage ? "/#contact" : "#contact"}
               className="hidden md:inline-flex items-center px-5 py-2 rounded-full bg-[#00b2a9] hover:bg-[#00d4c7] text-black text-sm font-semibold transition-all duration-200 hover:scale-105 shadow-lg shadow-[#00b2a9]/20"
             >
               Get Started
@@ -103,7 +103,7 @@ export default function Navbar() {
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
                 className={`block px-3 py-2.5 rounded-lg text-sm font-medium transition-colors ${
-                  link.label === "News" && isNews
+                  link.label === "News" && isSubpage
                     ? "text-[#00b2a9]"
                     : "text-gray-400 hover:text-white hover:bg-gray-800"
                 }`}
@@ -113,7 +113,7 @@ export default function Navbar() {
             ))}
             <div className="pt-2">
               <Link
-                href={isNews ? "/#contact" : "#contact"}
+                href={isSubpage ? "/#contact" : "#contact"}
                 onClick={() => setMobileOpen(false)}
                 className="block px-5 py-2.5 rounded-full bg-[#00b2a9] text-black text-sm font-semibold text-center"
               >
