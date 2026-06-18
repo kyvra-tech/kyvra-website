@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-
 /* ─── Differentiator data ─── */
 const differentiators = [
   {
@@ -56,29 +54,9 @@ const CheckMark = () => (
 
 /* ─── Main component ─── */
 export default function WhyDifferent() {
-  const sectionRef = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const el = sectionRef.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    observer.observe(el);
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
-      className="relative py-20 sm:py-28 px-6 bg-gray-900/20"
+      className="relative py-20 sm:py-28 px-6 bg-gray-900/20 scroll-reveal-up"
     >
       {/* Subtle top-edge radial glow */}
       <div className="absolute inset-0 pointer-events-none" style={{ background: "radial-gradient(ellipse 70% 30% at 50% 0%, rgba(0,178,169,0.05) 0%, transparent 70%)" }} />
@@ -86,9 +64,7 @@ export default function WhyDifferent() {
       <div className="relative max-w-7xl mx-auto">
         {/* ── Heading ── */}
         <div
-          className={`text-center mb-14 sm:mb-20 transition-all duration-700 ${
-            visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mb-14 sm:mb-20 scroll-reveal-up`}
         >
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white leading-tight">
             Not Just Another Agency —{" "}
@@ -101,9 +77,7 @@ export default function WhyDifferent() {
           {/* ─ Left: Text content ─ */}
           <div>
             <p
-              className={`text-gray-400 text-base sm:text-lg leading-relaxed mb-10 max-w-lg transition-all duration-700 delay-100 ${
-                visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-              }`}
+              className={`text-gray-400 text-base sm:text-lg leading-relaxed mb-10 max-w-lg scroll-reveal-up`}
             >
               Most software agencies build what you ask for. Kyvra builds what you{" "}
               <em className="text-white not-italic font-medium">need</em> —
@@ -115,11 +89,8 @@ export default function WhyDifferent() {
               {differentiators.map((d, i) => (
                 <div
                   key={d.title}
-                  className={`group flex gap-4 p-4 sm:p-5 rounded-2xl transition-all duration-500 hover:-translate-y-0.5 ${
-                    visible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-6"
-                  }`}
+                  className={`group flex gap-4 p-4 sm:p-5 rounded-2xl transition-all duration-500 hover:-translate-y-0.5 scroll-reveal-up`}
                   style={{
-                    transitionDelay: visible ? `${200 + i * 150}ms` : "0ms",
                     background: "linear-gradient(135deg, rgba(255,255,255,0.02) 0%, rgba(0,178,169,0.03) 100%)",
                     border: "1px solid rgba(255,255,255,0.05)",
                   }}
@@ -147,9 +118,7 @@ export default function WhyDifferent() {
 
           {/* ─ Right: Comparison card ─ */}
           <div
-            className={`transition-all duration-700 delay-300 ${
-              visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-10"
-            }`}
+            className={`scroll-scale-in`}
           >
             <div className="gradient-border rounded-2xl overflow-hidden">
               <div className="bg-gray-900/70 rounded-2xl p-6 sm:p-8">
@@ -206,11 +175,8 @@ export default function WhyDifferent() {
                     {kyvra.map((item, i) => (
                       <div
                         key={item}
-                        className={`flex items-center gap-3 pl-4 py-2.5 rounded-xl transition-all duration-500 ${
-                          visible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-4"
-                        }`}
+                        className={`flex items-center gap-3 pl-4 py-2.5 rounded-xl transition-all duration-500 scroll-reveal-up`}
                         style={{
-                          transitionDelay: visible ? `${600 + i * 120}ms` : "0ms",
                           background: "linear-gradient(135deg, rgba(0,178,169,0.06) 0%, rgba(0,212,199,0.03) 100%)",
                           border: "1px solid rgba(0,178,169,0.12)",
                         }}

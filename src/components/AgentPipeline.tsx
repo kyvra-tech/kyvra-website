@@ -261,7 +261,7 @@ function AgentCard({
 }) {
   return (
     <div
-      className={`float ${agent.floatDelay} group relative flex-1 min-w-0`}
+      className={`float ${agent.floatDelay} group relative flex-1 min-w-0 scroll-scale-in`}
       onMouseEnter={onHover}
       onMouseLeave={onLeave}
       onClick={onClick}
@@ -453,7 +453,7 @@ export default function AgentPipeline() {
         </div>
 
         {/* ── Supervisor Note ── */}
-        <div className="mt-16 lg:mt-20 flex justify-center">
+        <div className="mt-16 lg:mt-20 flex justify-center scroll-reveal-up">
           <div className="gradient-border rounded-2xl max-w-2xl w-full">
             <div className="flex items-start gap-4 p-5 lg:p-6">
               {/* Orchestrator icon */}

@@ -7,6 +7,7 @@ import LiveDemo from "@/components/LiveDemo";
 import AnimatedMetrics from "@/components/AnimatedMetrics";
 import WhyDifferent from "@/components/WhyDifferent";
 import ProjectsShowcase from "@/components/ProjectsShowcase";
+import ScrollFallback from "@/components/ScrollFallback";
 
 export const metadata: Metadata = {
   title: "Kyvra Tech - Autonomous Intelligence Ecosystem",
@@ -34,11 +35,12 @@ const techStack = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white">
+      <ScrollFallback />
       <Navbar />
 
       {/* Hero */}
       <section className="relative pt-32 pb-24 px-6 overflow-hidden hero-gradient">
-        <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none" />
+        <div className="absolute inset-0 bg-grid opacity-40 pointer-events-none parallax-bg" />
         <div className="relative max-w-7xl mx-auto text-center">
           {/* Live badge */}
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00b2a9]/10 border border-[#00b2a9]/30 text-[#00b2a9] text-sm font-medium mb-8">
@@ -86,7 +88,7 @@ export default function Home() {
       <ProjectsShowcase />
 
       {/* About */}
-      <section id="about" className="py-24 px-6">
+      <section id="about" className="py-24 px-6 scroll-reveal-up">
         <div className="max-w-7xl mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -132,7 +134,7 @@ export default function Home() {
       </section>
 
       {/* Partners */}
-      <section className="py-16 px-6 border-y border-gray-800/50">
+      <section className="py-16 px-6 border-y border-gray-800/50 scroll-reveal-up">
         <div className="max-w-7xl mx-auto text-center">
           <p className="text-gray-600 text-xs uppercase tracking-widest mb-8">
             Trusted Partners
@@ -152,7 +154,7 @@ export default function Home() {
       </section>
 
       {/* New Waitlist CTA */}
-      <section id="contact" className="py-28 px-6 bg-gray-900/30">
+      <section id="contact" className="py-28 px-6 bg-gray-900/30 scroll-reveal-up">
         <div className="max-w-3xl mx-auto text-center">
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400 text-xs font-semibold uppercase tracking-widest mb-6">
             <span className="w-1.5 h-1.5 bg-orange-400 rounded-full animate-pulse" />
